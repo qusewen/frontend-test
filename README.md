@@ -51,40 +51,40 @@
 Для тестового приложения предлагается использовать публичное API компании. Для работы с этим  API предусмотрены следующие запросы:
 
 ### GET-запросы
-1. Получение всех постов: `GET /post`
+1. Получение всех постов: `GET /api/post`
 2. Сортировка:
-    * `field=title` — сортировка по полю.
-    * `direction=asc` или `direction=desc` — вид сортировки (asc — по возрастанию, desc — по убыванию).
-    * Пример сортировки по полю title по возрастанию: `https://testtask.public.indev.by/post?field=title&direction=desc`
-4. Получение конкретного поста по ID: `GET /post/1`
-5. Получение комментариев к посту: `GET /post` поле - comments
-6. Получение всех постов определенного пользователя: `GET /post?userId=1`
-7. Получение всех пользователей: `GET /users`
+    * `sort_direction=title` — сортировка по полю.
+    * `sort_by=asc` или `direction=desc` — вид сортировки (asc — по возрастанию, desc — по убыванию).
+    * Пример сортировки по полю title по возрастанию: `https://testtask.public.indev.by/api/post?sort_direction=title&sort_by=desc`
+4. Получение конкретного поста по ID: `GET /api/post/1`
+5. Получение комментариев к посту: `GET /api/post` поле - comments
+6. Получение всех постов определенного пользователя: `GET /api/post?userId=1`
+7. Получение всех пользователей: `GET /api/users`
 
 
 
 ### PATCH-запрос
-Авторизация: `POST /auth/login`
+Авторизация: `POST /api/auth/login`
 * Тело запроса: `{ email: string, password: string}`
 
-Обновление токена: `POST /auth/refresh`
+Обновление токена: `POST /api/auth/refresh`
 
-Обновление поста с заданным ID: `PATCH /post/1`
+Обновление поста с заданным ID: `PATCH /api/post/1`
 * Тело запроса: `{ title: string, text: string}`
 
 ### POST-запрос
-Создание нового поста: `POST /post/create`
+Создание нового поста: `POST /api/post/create`
 * Тело запроса: `{title: string, text: string}`
   
-Создание пользователя `POST /users/register`
+Создание пользователя `POST /api/users/register`
 * Тело запроса: `{name: string, email: string, password: string}`
 
-Создание нового комменатрия: `POST /comments`
+Создание нового комменатрия: `POST /api/comments`
 * Тело запроса: `{comment: string, postId: string}`
 
 ### DELETE-запрос
-Удаление элемента с заданным ID: `DELETE /post/id`
-Удаление комментария с заданным ID: `DELETE /comments/id`
+Удаление элемента с заданным ID: `DELETE /api/post/id`
+Удаление комментария с заданным ID: `DELETE /api/comments/id`
 
 ---
 
